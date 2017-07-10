@@ -260,13 +260,13 @@
         });
       }
       // Update the width of the entire grid container with enough room on the
-      // right to allow dragging items to the end of the grid.
+      // right to allow dragging items to the end of the grid (unless drag&drop is not active).
       if (this.options.direction === "horizontal") {
         this.$element.width(
-          (this.gridList.grid.length + this._widestItem) * this._cellWidth);
+          (this.gridList.grid.length + (this.options.dragAndDrop ? this._widestItem : 0)) * this._cellWidth);
       } else {
         this.$element.height(
-          (this.gridList.grid.length + this._tallestItem) * this._cellHeight);
+          (this.gridList.grid.length + (this.options.dragAndDrop ? this._tallestItem : 0)) * this._cellHeight);
       }
     },
 
